@@ -20,23 +20,23 @@ const runOptimization = async () => {
 function App() {
   return (
     <Router>
-      <div className="bg-gray-100 min-h-screen">
-        <header className="bg-white shadow p-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">AITrain — Traffic Control</h1>
-          <nav className="flex space-x-4">
-            <Link to="/" className="text-blue-500 hover:text-blue-700">Dashboard</Link>
-            <Link to="/trains" className="text-blue-500 hover:text-blue-700">Train List</Link>
-            <Link to="/tracks" className="text-blue-500 hover:text-blue-700">Track Map</Link>
+      <div className="bg-gray-50 min-h-screen font-roboto">
+        <header className="bg-white shadow-lg py-4 px-8 flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-gray-800">AITrain — Traffic Control</h1>
+          <nav className="flex items-center space-x-4">
+            <Link to="/" className="text-gray-600 hover:text-blue-600 font-medium">Dashboard</Link>
+            <Link to="/trains" className="text-gray-600 hover:text-blue-600 font-medium">Train List</Link>
+            <Link to="/tracks" className="text-gray-600 hover:text-blue-600 font-medium">Track Map</Link>
             <button
               onClick={runOptimization}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+              className="btn-primary"
             >
               Run Optimization
             </button>
           </nav>
         </header>
 
-        <main>
+        <main className="p-8">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/trains" element={<TrainList />} />

@@ -5,7 +5,9 @@ export default function TrackMap() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/tracks').then(res => setTracks(res.data));
+    axios.get('/api/tracks')
+      .then(res => setTracks(res.data))
+      .catch(err => console.error(err)); // handle error
   }, []);
 
   return (
@@ -20,10 +22,11 @@ export default function TrackMap() {
             }`}
           >
             <h3 className="font-bold">Section {sec.section_id}</h3>
-            <p>Status: {sec.status}</p>
-            <p>Occupancy: {sec.occupancy}</p>
+            <p>Status: {sec.status || 'N/A'}</p>
+            <p>Occupancy: {sec.occupancy ?? 0}</p>
           </div>
         ))}
       </div>
     </div>
   );
+}
